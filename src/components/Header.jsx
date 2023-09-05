@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import SportSeeLogo from "../assets/SportSeeLogo.png";
 import "../styles/Header.css";

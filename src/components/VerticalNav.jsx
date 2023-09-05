@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import Icon1 from "../assets/menu_icon_1.svg";
 import Icon2 from "../assets/menu_icon_2.svg";
