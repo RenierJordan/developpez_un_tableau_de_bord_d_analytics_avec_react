@@ -102,9 +102,10 @@ Activity.propTypes = {
   ).isRequired,
 };
 CustomTooltip.propTypes = {
-  active: PropTypes.boolean,
-  payload: PropTypes.shape({
-    value: PropTypes.number,
-    length: PropTypes.number,
-  }),
+  active: PropTypes.bool,
+  payload: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+    })
+  ),
 };

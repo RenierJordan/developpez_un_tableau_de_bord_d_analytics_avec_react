@@ -100,15 +100,16 @@ Average.propTypes = {
 };
 
 CustomTooltip.propTypes = {
-  active: PropTypes.boolean,
-  payload: PropTypes.shape({
-    value: PropTypes.number,
-    length: PropTypes.number,
-  }),
+  active: PropTypes.bool,
+  payload: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+    })
+  ),
 };
 
 CustomizedCursor.propTypes = {
-  points: PropTypes.arrayof(
+  points: PropTypes.arrayOf(
     PropTypes.shape({
       x: PropTypes.number,
     })
