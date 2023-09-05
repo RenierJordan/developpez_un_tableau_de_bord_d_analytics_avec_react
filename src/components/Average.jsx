@@ -11,6 +11,32 @@ import {
 import "../styles/Average.css";
 import PropTypes from "prop-types";
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="Average-tooltip">
+        <p className="Average-tooltip__value">{`${payload[0].value} min`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
+const CustomizedCursor = (props) => {
+  const { points, width } = props;
+  const { x } = points[0];
+  return (
+    <Rectangle
+      fill="black"
+      fillOpacity={0.1}
+      x={x}
+      width={width}
+      height={262}
+    />
+  );
+};
+
 export default function Average(props) {
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   const data = [];
@@ -20,32 +46,6 @@ export default function Average(props) {
       sessionLength: session.sessionLength,
     });
   });
-
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="Average-tooltip">
-          <p className="Average-tooltip__value">{`${payload[0].value} min`}</p>
-        </div>
-      );
-    }
-
-    return null;
-  };
-
-  const CustomizedCursor = (props) => {
-    const { points, width } = props;
-    const { x, y } = points[0];
-    return (
-      <Rectangle
-        fill="black"
-        fillOpacity={0.1}
-        x={x}
-        width={width}
-        height={262}
-      />
-    );
-  };
 
   const AverageTitle = () => {
     return <p className="Average-title">Durée moyenne des sessions</p>;
@@ -97,4 +97,21 @@ Average.propTypes = {
       })
     ).isRequired,
   }),
+};
+
+CustomTooltip.propTypes = {
+  active: PropTypes.boolean,
+  payload: PropTypes.shape({
+    value: PropTypes.number,
+    length: PropTypes.number,
+  }),
+};
+
+CustomizedCursor.propTypes = {
+  points: PropTypes.arrayof(
+    PropTypes.shape({
+      x: PropTypes.number,
+    })
+  ),
+  width: PropTypes.number,
 };

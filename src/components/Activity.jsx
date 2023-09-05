@@ -10,6 +10,19 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="Activity-tooltip">
+        <p className="Activity-tooltip__value">{`${payload[0].value} kg`}</p>
+        <p className="Activity-tooltip__value">{`${payload[1].value} kCal`}</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 export default function Activity(props) {
   const data = [];
 
@@ -21,19 +34,6 @@ export default function Activity(props) {
       calories: props.sessions[day].calories,
     });
   }
-
-  const CustomTooltip = ({ active, payload, label }) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="Activity-tooltip">
-          <p className="Activity-tooltip__value">{`${payload[0].value} kg`}</p>
-          <p className="Activity-tooltip__value">{`${payload[1].value} kCal`}</p>
-        </div>
-      );
-    }
-
-    return null;
-  };
 
   return (
     <div className="Activity">
@@ -93,14 +93,18 @@ export default function Activity(props) {
   );
 }
 Activity.propTypes = {
-  activity: PropTypes.shape({
-    userId: PropTypes.number.isRequired,
-    sessions: PropTypes.arrayOf(
-      PropTypes.shape({
-        day: PropTypes.string,
-        kilogram: PropTypes.number,
-        calories: PropTypes.number,
-      })
-    ).isRequired,
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ).isRequired,
+};
+CustomTooltip.propTypes = {
+  active: PropTypes.boolean,
+  payload: PropTypes.shape({
+    value: PropTypes.number,
+    length: PropTypes.number,
   }),
 };
