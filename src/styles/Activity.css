@@ -1,0 +1,45 @@
+.Activity-title {
+  font-size: 15px;
+  font-weight: 500;
+}
+.Activity {
+  width: 835px;
+  height: 320px;
+}
+.Activity-inline {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+.Activity-legend {
+  display: flex;
+  gap: 2rem;
+  color: #74798c;
+  font-size: 14px;
+  font-weight: 500;
+}
+.Activity-tooltip {
+  background-color: #e60000;
+  color: white;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 24px;
+  padding-inline: 7px;
+}
+.Activity-legend__calories,
+.Activity-legend__weight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.red-dot {
+  background-color: #e60000;
+}
+.black-dot {
+  background-color: #282d30;
+}

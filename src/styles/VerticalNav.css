@@ -1,0 +1,26 @@
+.vertical-nav {
+  width: 117px;
+  background-color: black;
+  height: calc(100vh - 62.4px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+}
+
+.vnav-icon {
+  height: 60px;
+  width: 60px;
+  margin: 5px 0;
+}
+
+.copyright {
+  color: white;
+  transform: rotate(-90deg);
+  width: max-content;
+  font-size: 12px;
+  position: absolute;
+  bottom: 75px;
+}
